@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050f1a">
+<title>Crystal Genius International — Quality That Breeds Class</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06142a;--bg2:#0b1f3d;--ln:#1d4272;--cy:#2f9bff;--am:#ffd23f;--rd:#e3171e;--tx:#e8f1f8;--mu:#8ea6bb;--ch:#f1f5f8;--ink:#06121f;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3,.u{font-family:Unbounded,'Arial Black',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.03em}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.w{width:min(1280px,100% - 40px);margin:0 auto}
+.grid{background-image:linear-gradient(var(--ln) 1px,transparent 1px),linear-gradient(90deg,var(--ln) 1px,transparent 1px);background-size:48px 48px;opacity:.28}
+/* preloader */
+#pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:transform 1s cubic-bezier(.77,0,.18,1)}
+#pre.go{transform:translateY(-100%)}
+#pre div{text-align:center}#pre svg{width:84px;height:84px;margin-bottom:22px}#pre .n{font:700 13px Unbounded;color:var(--cy);letter-spacing:.2em}
+#pre path,#pre rect{fill:none;stroke:var(--cy);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:dr 1.6s ease forwards}
+/* cursor */
+.cur{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px;border:1px solid var(--cy);border-radius:50%;z-index:90;pointer-events:none;display:none;transition:width .25s,height .25s,margin .25s,background .25s;mix-blend-mode:normal;font:700 11px Unbounded;color:var(--ink);align-items:center;justify-content:center}
+.cur.h{width:72px;height:72px;margin:-36px;background:var(--cy)}.cur.t{width:6px;height:6px;margin:-3px;background:var(--am);border-color:var(--am)}
+@media(hover:hover) and (pointer:fine){.cur{display:flex}}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--am);transform-origin:left;transform:scaleX(0);z-index:80}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:70;padding-top:env(safe-area-inset-top,0px);transition:transform .45s,background .3s}
+nav.hide{transform:translateY(-100%)}nav.s{background:rgba(5,15,26,.85);backdrop-filter:blur(10px)}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:flex;gap:10px;align-items:center;font:700 13px Unbounded;letter-spacing:.02em}.logo i{width:30px;height:30px;border:2px solid var(--cy);display:grid;place-items:center;font-style:normal;color:var(--cy);font-size:12px}
+.mb{display:flex;align-items:center;gap:12px;font:700 12px Unbounded;padding:10px 0}.mb b{width:26px;height:10px;border-top:2px solid #fff;border-bottom:2px solid #fff;transition:.3s}
+#menu{position:fixed;inset:0;z-index:60;background:var(--bg2);clip-path:circle(0 at calc(100% - 40px) 36px);transition:clip-path .8s cubic-bezier(.77,0,.18,1);display:flex;flex-direction:column;justify-content:center;padding:90px 24px 40px}
+#menu.o{clip-path:circle(150% at calc(100% - 40px) 36px)}
+#menu a.l{font:700 clamp(34px,9vw,84px)/1.12 Unbounded;letter-spacing:-.04em;display:block;transform:translateY(40px);opacity:0;transition:.6s}
+#menu.o a.l{transform:none;opacity:1}#menu a.l:hover{color:var(--cy);padding-left:14px}#menu a.l{transition:transform .6s,opacity .6s,padding .3s,color .3s}
+#menu p{margin-top:28px;color:var(--mu);font-size:14px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 28px;background:var(--rd);color:#fff;font:700 12px Unbounded;letter-spacing:.02em;position:relative;overflow:hidden;transition:transform .3s}
+.btn:after{content:"";position:absolute;inset:0;background:var(--am);transform:translateY(101%);transition:transform .4s}.btn:hover:after{transform:none}.btn span{position:relative;z-index:1}
+.btn.g{background:none;border:1px solid var(--cy);color:var(--tx)}.btn.g:after{background:var(--cy)}.btn.g:hover{color:var(--ink)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;touch-action:pan-y}
+.hero .grid{position:absolute;inset:-48px;animation:gp 30s linear infinite}@keyframes gp{to{transform:translate(48px,48px)}}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,transparent 20%,var(--bg) 85%)}
+.sl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .9s;z-index:1}.sl.on{opacity:1}
+.sl svg{width:min(1100px,150%);margin-top:-8%;overflow:visible;transition:transform .3s ease-out}
+.ln{fill:none;stroke:var(--cy);stroke-width:1.6;stroke-dasharray:1;stroke-dashoffset:1;vector-effect:non-scaling-stroke}
+.on .ln{animation:dr 2.4s cubic-bezier(.6,0,.2,1) forwards;animation-delay:calc(var(--i)*40ms)}
+.fl{fill:var(--cy);opacity:0}.on .fl{animation:fi 1.2s 1.8s forwards}.am{stroke:var(--am)}
+@keyframes dr{to{stroke-dashoffset:0}}@keyframes fi{to{opacity:.13}}
+.dim{font:500 11px Manrope;fill:var(--mu);letter-spacing:.14em;opacity:0}.on .dim{animation:fi2 1s 2s forwards}@keyframes fi2{to{opacity:1}}
+.hi{position:relative;z-index:3;padding-bottom:128px}
+h1{font-size:clamp(38px,9.4vw,142px);text-transform:uppercase;max-width:11ch}
+.mk{display:block;overflow:hidden;padding-bottom:.08em}.mk>span{display:block;transform:translateY(110%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv .mk>span,.mk.in>span,body.ready .hero .mk>span{transform:none}
+.hero p{max-width:480px;margin:22px 0 28px;color:#b8cbdb;font-size:clamp(15px,2.2vw,18px)}
+.hb{display:flex;gap:12px;flex-wrap:wrap}
+.hud{position:absolute;z-index:4;left:0;right:0;bottom:0;padding:0 0 calc(18px + env(safe-area-inset-bottom,0px));background:linear-gradient(0deg,var(--bg) 40%,transparent)}
+.hud .w{display:flex;gap:14px;align-items:end}
+.cap{flex:1;min-width:0}.cap small{color:var(--cy);font:700 10px Unbounded;letter-spacing:.1em}.cap b{display:block;font:700 clamp(16px,3.4vw,24px) Unbounded;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cap em{color:var(--mu);font-size:13px;font-style:normal}
+.dots{display:flex;gap:6px;margin-top:12px}.dots i{flex:1;height:3px;background:var(--ln);position:relative;overflow:hidden;cursor:pointer;padding:0}.dots i:before{content:"";position:absolute;inset:0;background:var(--am);transform:scaleX(0);transform-origin:left}.dots i.on:before{animation:pg 7s linear forwards}.dots i.d:before{transform:scaleX(1)}
+@keyframes pg{to{transform:scaleX(1)}}
+.ar{display:flex;gap:8px}.ar button{width:46px;height:46px;border:1px solid var(--ln);font-size:18px;transition:.25s}.ar button:hover{background:var(--cy);color:var(--ink)}
+.sw{position:absolute;z-index:4;top:84px;right:20px;font-size:10px;color:var(--mu);letter-spacing:.14em}
+/* marquee */
+.mq{border-block:1px solid var(--ln);overflow:hidden;padding:18px 0;background:var(--bg2)}.mq div{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite}.mq span{font:700 clamp(18px,3vw,30px) Unbounded;white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--mu)}.mq span:nth-child(even){color:var(--cy);-webkit-text-stroke:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:clamp(72px,12vw,150px) 0;position:relative}
+.k{font:700 11px Unbounded;letter-spacing:.14em;color:var(--cy);margin-bottom:20px;display:block}
+h2{font-size:clamp(30px,6vw,84px);max-width:16ch}
+.ab{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,90px);margin-top:48px}
+.ab p{color:#b8cbdb;font-size:clamp(16px,2vw,19px);margin-bottom:20px}
+.mv div{border-top:1px solid var(--ln);padding:20px 0}.mv b{font:700 12px Unbounded;color:var(--am);display:block;margin-bottom:6px}.mv span{color:var(--mu)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--ln)}
+.nums div{padding:26px 14px 0 0}.nums b{font:900 clamp(40px,9vw,120px)/1 Unbounded;letter-spacing:-.05em;display:block;color:var(--cy)}.nums span{color:var(--mu);font-size:13px}
+/* services */
+.sv{background:var(--ch);color:var(--ink)}.sv h2{color:var(--ink)}.sv .k{color:#0a6a94}
+.rows{margin-top:56px;border-top:1px solid #c5d2dc}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:clamp(18px,3vw,30px) 0;border-bottom:1px solid #c5d2dc;position:relative;overflow:hidden;cursor:pointer;transition:padding .4s}
+.row:before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.row *{position:relative;transition:color .3s,transform .4s}.row h3{font-size:clamp(20px,4.4vw,52px);letter-spacing:-.04em}.row em{font:700 22px Unbounded;font-style:normal}
+.row:hover:before,.row:active:before{transform:none}.row:hover{padding-inline:20px}.row:hover *,.row:active *{color:#fff}.row:hover em{color:var(--am);transform:rotate(-45deg)}
+/* projects */
+.pj{padding-bottom:clamp(72px,10vw,120px)}.ph{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}.ph p{color:var(--mu);max-width:340px;font-size:14px}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:48px 20px 20px;margin-top:10px;scrollbar-width:none;cursor:grab}.rail::-webkit-scrollbar{display:none}
+.rail:before,.rail:after{content:"";flex:0 0 max(0px,calc((100vw - 1280px)/2))}
+.pc{flex:0 0 min(84vw,520px);scroll-snap-align:center;background:var(--bg2);border:1px solid var(--ln);text-align:left;transition:border-color .3s,transform .5s}
+.pc:hover{border-color:var(--cy);transform:translateY(-8px)}
+.pc .im{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(180deg,#0a1b2c,#0d2640)}.pc .im svg{position:absolute;inset:6% 4%;width:92%;height:88%;transition:transform .8s}.pc:hover .im svg{transform:scale(1.07)}
+.pc .im .ln{stroke-dashoffset:0}.pc .im .fl{opacity:.13}.pc .im .dim{opacity:1}
+.pc .im:after{content:"Photo to be added";position:absolute;left:12px;top:10px;font-size:10px;letter-spacing:.14em;color:var(--mu)}
+.pb{padding:22px 22px 26px}.pb small{color:var(--am);font:700 10px Unbounded;letter-spacing:.1em}.pb h3{font-size:clamp(22px,3.6vw,30px);margin:8px 0 6px}.pb em{font-style:normal;color:var(--mu);font-size:14px}
+.pc .go{display:flex;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid var(--ln);font:700 11px Unbounded;color:var(--cy)}
+/* modal */
+#md{position:fixed;inset:0;z-index:75;background:var(--bg);overflow-y:auto;transform:translateY(100%);transition:transform .8s cubic-bezier(.77,0,.18,1);visibility:hidden}
+#md.o{transform:none;visibility:visible}
+#md .w{padding:90px 0 60px;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+#md .im{aspect-ratio:4/3;border:1px solid var(--ln);background:var(--bg2);padding:20px}#md svg{width:100%;height:100%}#md .ln{stroke-dashoffset:0}#md .fl{opacity:.13}
+#md h2{font-size:clamp(30px,5vw,60px)}#md dl{margin:26px 0;border-top:1px solid var(--ln)}#md dl div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--ln)}#md dt{color:var(--mu);font-size:13px}#md dd{text-align:right}
+#cl{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:20px;z-index:80;font:700 12px Unbounded;padding:14px 18px;border:1px solid var(--cy);background:var(--bg)}
+/* approach */
+.ap{background:var(--bg2)}.tl{position:relative;margin-top:60px;padding-left:34px}
+.tl:before,.tl .fill{content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--ln)}.tl .fill{background:var(--am);transform-origin:top;transform:scaleY(var(--p,0))}
+.st{position:relative;padding:0 0 44px;opacity:.35;transition:opacity .5s}.st.in{opacity:1}.st:before{content:"";position:absolute;left:-34px;top:8px;width:14px;height:14px;background:var(--bg2);border:2px solid var(--am);border-radius:50%;transition:.4s}.st.in:before{background:var(--am);box-shadow:0 0 0 8px rgba(255,194,61,.15)}
+.st b{font:700 11px Unbounded;color:var(--cy)}.st h3{font-size:clamp(22px,4vw,40px);margin:6px 0 8px}.st p{color:var(--mu);max-width:520px}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}.why div{border:1px solid var(--ln);padding:26px;transition:.4s}.why div:hover{background:var(--bg2);border-color:var(--cy)}.why h3{font-size:22px;margin-bottom:10px}.why p{color:var(--mu);font-size:15px}
+/* team */
+.tm{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+.tc .pt{aspect-ratio:4/5;background:var(--bg2);border:1px solid var(--ln);display:grid;place-items:center;font:900 clamp(42px,8vw,72px) Unbounded;color:var(--ln);position:relative;overflow:hidden;transition:.4s}.tc:hover .pt{color:var(--cy);border-color:var(--cy)}.pt small{position:absolute;left:10px;bottom:8px;font:400 10px Manrope;color:var(--mu);letter-spacing:.1em}
+.tc h3{font-size:16px;margin:14px 0 4px;letter-spacing:-.02em}.tc p{color:var(--mu);font-size:13px;line-height:1.5}
+/* contact */
+.ct{background:var(--ch);color:var(--ink)}.ct .k{color:#0a6a94}.ct h2{color:var(--ink)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);margin-top:48px}
+.cl a,.cl div{display:block;padding:18px 0;border-bottom:1px solid #c5d2dc}.cl small{display:block;color:#51687a;font-size:12px}.cl a{font:700 clamp(17px,3vw,24px) Unbounded;letter-spacing:-.03em;transition:padding .3s,color .3s}.cl a:hover{color:#0a6a94;padding-left:12px}
+form{display:grid;gap:16px}label{display:grid;gap:6px;font-size:13px;color:#51687a;font-weight:500}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #b5c4d0;padding:15px;width:100%;border-radius:0;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:4px 4px 0 var(--am)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.fn{font-size:13px;color:#51687a}.fn a{text-decoration:underline}
+.ct .btn{background:var(--ink);color:#fff;justify-content:center}.ct .btn:after{background:var(--am)}.ct .btn:hover{color:var(--ink)}
+footer{padding:60px 0 calc(24px + env(safe-area-inset-bottom,0px));overflow:hidden}
+.big{font:900 clamp(44px,15.5vw,230px)/.9 Unbounded;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px var(--ln);white-space:nowrap;margin:30px 0;transition:.5s}.big:hover{-webkit-text-stroke-color:var(--cy)}
+.fr{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--mu);font-size:13px}.fr a:hover{color:var(--cy)}
+[data-r]{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}[data-r].in{opacity:1;transform:none}
+@media(max-width:860px){.ab,.cg,#md .w{grid-template-columns:1fr}.tm{grid-template-columns:1fr 1fr}.why{grid-template-columns:1fr}.sl svg{width:210%;margin-top:-30%}.hi{padding-bottom:140px}.sw{display:none}.two{grid-template-columns:1fr}.nums b{font-size:clamp(34px,11vw,60px)}}
+@media(prefers-reduced-motion:reduce){*,:before,:after{animation-duration:.01s!important;transition-duration:.01s!important}.ln{stroke-dashoffset:0}.fl{opacity:.13}}
+.hero{justify-content:center;min-height:640px}
+.hero .grid{opacity:.12}
+.hero:after{background:linear-gradient(90deg,var(--bg) 0%,rgba(6,20,42,.92) 42%,rgba(6,20,42,.15) 90%),linear-gradient(0deg,var(--bg) 0%,transparent 30%)}
+.sl{align-items:flex-end;justify-content:flex-end;padding-bottom:110px}
+.sl svg{width:min(980px,76%);margin:0 2% 0 0;opacity:.8}
+.hi{padding:110px 0 150px}
+.eb{display:block;font:700 11px Unbounded;letter-spacing:.16em;color:var(--am);margin-bottom:18px}
+.hero h1{font-size:clamp(30px,5.2vw,76px);line-height:1.06;max-width:none;letter-spacing:-.035em;text-transform:uppercase}
+.hero p{max-width:440px;margin:20px 0 28px;font-size:clamp(15px,1.5vw,17px);line-height:1.7;color:#c3d3ea}
+.btn{padding:15px 22px}.btn:hover{color:var(--ink)}
+h2{font-size:clamp(26px,4.4vw,54px);line-height:1.08}
+.row h3{font-size:clamp(18px,3.2vw,36px)}
+@media(max-width:860px){.hero:after{background:linear-gradient(180deg,var(--bg) 0%,rgba(6,20,42,.9) 58%,rgba(6,20,42,.3) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 22%)}.sl{padding-bottom:96px}.sl svg{width:140%;margin:0 -20% 0 0;opacity:.5}.hi{padding:96px 0 130px}.hb .btn{padding:14px 18px}}
+</style></head>
+<body>
+<div id="pre"><div><svg viewBox="0 0 84 84"><path pathLength="1" d="M10 74V30L42 10l32 20v44M10 74h64"/><rect pathLength="1" x="30" y="40" width="24" height="34"/></svg><div class="n" id="pn">0%</div></div></div>
+<div class="cur" id="cur"></div><div id="bar"></div>
+<nav id="nav"><div class="w"><a class="logo" href="#top" data-c="t"><i>CG</i>CRYSTAL GENIUS</a><button class="mb" id="mb" aria-expanded="false" aria-controls="menu"><span id="mt">MENU</span><b></b></button></div></nav>
+<div id="menu" aria-label="Site menu"><a class="l" href="#about">About</a><a class="l" href="#services">Services</a><a class="l" href="#projects">Projects</a><a class="l" href="#approach">Approach</a><a class="l" href="#team">Team</a><a class="l" href="#contact">Contact</a><p>152, Akowonjo-Egbeda Road, by Sobo Bus Stop, Lagos<br>+234 808 895 1100</p></div>
+
+<header class="hero" id="top"><div class="grid"></div><div id="slides"></div>
+<span class="sw u">SWIPE · DRAG · ARROW KEYS</span>
+<div class="w hi"><span class="eb">DESIGN · ENGINEERING · CONSTRUCTION · LAGOS</span><h1><span class="mk"><span style="transition-delay:.2s">Quality</span></span><span class="mk"><span style="transition-delay:.35s">that breeds</span></span><span class="mk"><span style="transition-delay:.5s;color:var(--am)">class.</span></span></h1>
+<p>Architectural design, structural engineering and construction in Lagos. Drawn precisely, built accountably.</p>
+<div class="hb"><a class="btn mg" href="#projects" data-c="t"><span>See our projects</span></a><a class="btn g mg" href="#contact"><span>Start an enquiry</span></a></div></div>
+<div class="hud"><div class="w"><div class="cap" aria-live="polite"><small id="hn">NOW SHOWING</small><b id="ht"></b><em id="hl"></em><div class="dots" id="dots"></div></div><div class="ar"><button id="pv" aria-label="Previous project">←</button><button id="nx" aria-label="Next project">→</button></div></div></div></header>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="about"><div class="w"><span class="k" data-r>ABOUT US · FOUNDED 2013</span><h2 data-r>From visionary blueprint to structural reality.</h2>
+<div class="ab"><div data-r><p>Crystal Genius International Limited is a Lagos design, engineering and construction company. We drive project certainty through precise architectural drawing, structural and infrastructural design, and professional soil testing and subsurface analysis.</p><p>Our expertise covers the full construction lifecycle, from first consultation to handover.</p></div>
+<div class="mv" data-r style="--d:.15s"><div><b>MISSION</b><span>Engineering structural certainty through absolute professional accountability.</span></div><div><b>VISION</b><span>To set the absolute standard for consultancy and construction excellence.</span></div><div><b>VALUES</b><span>Eliminating mediocrity through rigorous, data-driven execution.</span></div></div></div>
+<div class="nums"><div data-r><b data-n="2013">0</b><span>Year founded</span></div><div data-r style="--d:.1s"><b data-n="11">0</b><span>Service disciplines</span></div><div data-r style="--d:.2s"><b data-n="5">0</b><span>Featured projects</span></div></div></div></section>
+
+<section class="sv" id="services"><div class="w"><span class="k" data-r>SERVICES</span><h2 data-r>Eleven disciplines. One accountable team.</h2><div class="rows" id="rows"></div></div></section>
+
+<section class="pj" id="projects"><div class="w ph"><div><span class="k" data-r>SELECTED PROJECTS</span><h2 data-r>Built across Lagos, Ogun and Oyo.</h2></div><p data-r>Drag or swipe. Tap a project for details. Drawings are placeholders until photographs are added.</p></div><div class="rail" id="rail"></div></section>
+
+<section class="ap" id="approach"><div class="w"><span class="k" data-r>OUR PROCESS</span><h2 data-r>How a project moves from idea to site.</h2>
+<div class="tl" id="tl"><span class="fill"></span></div>
+<div class="why"><div data-r><h3>Precision from the ground up</h3><p>Soil testing and surveying inform every structural decision.</p></div><div data-r style="--d:.1s"><h3>Technology in every project</h3><p>Photogrammetry, drone mapping and 3D visualisation sharpen accuracy.</p></div><div data-r style="--d:.2s"><h3>Sustainable by design</h3><p>Energy-efficient design and clean energy solutions.</p></div></div></div></section>
+
+<section id="team"><div class="w"><span class="k" data-r>THE TEAM</span><h2 data-r>The people accountable for your project.</h2><div class="tm" id="tm"></div></div></section>
+
+<section class="ct" id="contact"><div class="w"><span class="k" data-r>CONTACT</span><h2 data-r>Tell us what you want to build.</h2>
+<div class="cg"><div class="cl" data-r><a href="tel:+2348088951100"><small>Phone</small>+234 808 895 1100</a><a href="tel:+2348142702816"><small>Phone</small>+234 814 270 2816</a><a href="https://wa.me/2348069452707" target="_blank" rel="noopener"><small>WhatsApp</small>+234 806 945 2707</a><a href="mailto:crystalgeniusinternational@gmail.com" style="font-size:clamp(14px,2.4vw,20px)"><small>Email</small>crystalgeniusinternational@gmail.com</a><div><small>Office · 8AM–5PM, Mon–Fri</small>152, Akowonjo-Egbeda Road, by Sobo Bus Stop, Lagos</div></div>
+<form id="f" data-r style="--d:.15s"><div class="two"><label>Full name<input id="fn" required autocomplete="name"></label><label>Phone<input id="fp" required type="tel" autocomplete="tel"></label></div><label>Service needed<select id="fs"></select></label><label>Project details<textarea id="fm" rows="4" required placeholder="Location, size, timeline"></textarea></label><button class="btn mg" type="submit"><span>Send on WhatsApp</span></button><p class="fn">Opens WhatsApp to +234 806 945 2707. Prefer email? <a id="em" href="#">Send by email</a>.</p></form></div></div></section>
+
+<footer><div class="w"><div class="big" aria-hidden="true">CRYSTAL GENIUS</div><div class="fr"><span>Quality That Breeds Class.</span><a href="https://crystalgeniusinternational.com/" target="_blank" rel="noopener">crystalgeniusinternational.com</a><span>© Crystal Genius International Limited · Redesign concept</span></div></div></footer>
+
+<div id="md" role="dialog" aria-modal="true" aria-label="Project details"><button id="cl">CLOSE ✕</button><div class="w"><div class="im" id="mi"></div><div><span class="k" id="mk"></span><h2 id="mh"></h2><dl id="mdl"></dl><a class="btn" href="#contact" id="mc"><span>Enquire about a similar project</span></a></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const P=[{n:"Genesis Court, Phase III",l:"Abraham Adesanya, Lagos",t:"Residential",s:"4 two-bedroom flats, 1 mini-flat and 1 three-bedroom pent flat.",d:"Jan 2026 – ongoing",c:4,r:4},
+{n:"Fairmount Hilltop Gardens",l:"Ikola, Lagos",t:"Mixed residential",s:"Two-bedroom semi-detached duplexes and mini-flats.",d:"Mar 2018 – Nov 2025",c:6,r:2},
+{n:"Bakare Residence",l:"Iju-Atan, Ogun State",t:"Residential",s:"4 mini-flats and 2 two-bedroom flats on 600 sqm.",d:"Feb 2019 – Oct 2022",c:5,r:3},
+{n:"Flora Court",l:"Oluyole, Ibadan, Oyo State",t:"Residential",s:"4 units of two-bedroom flats on 500 sqm.",d:"Jan 2024 – Oct 2024",c:4,r:3},
+{n:"Carlten Gate",l:"Abode, Akobo, Ibadan",t:"Detached house",s:"Four-bedroom detached bungalow with pent.",d:"Jun 2022 – Nov 2022",c:3,r:1}];
+const SV=["Architectural Design","Structural Engineering","Geotechnical Engineering and Soil Testing","Mechanical, Electrical and Plumbing (MEP)","Infrastructural and Civil Engineering","Topographical Surveying and Mapping","Building Construction and General Contracting","Project Management","Engineering Consultancy","3D Visualisation and Building Concepts","Clean Energy Solutions"];
+const ST=[["Consultation & Planning","We start by understanding your vision, requirements and project goals."],["Innovative Design & Technology","Advanced tools such as photogrammetry turn your vision into detailed, efficient designs."],["Precision Mapping & Surveying","Drone mapping, aerial and topographical surveys give data-rich insight for planning."],["Sustainable Construction & Quality Assurance","Sustainable practices and rigorous quality control at every stage."],["Training & Capacity Development","Programmes that equip people and organisations with essential skills."]];
+const TM=[["Engr. Vincent Satowaku","Senior Engineer, President / CEO","VS"],["Ayodele Agbaje","Senior Project Manager / Planner","AA"],["Gbemisola Adelani","Content & Social Media Manager","GA"],["Abimbola T.A.","Barrister and Solicitor","AT"]];
+/* elevation drawing */
+function elev(p,i){const bw=p.c*74,bh=p.r*86+30,x=(900-bw)/2-40,y=410-bh;let k=0,o=[];const L=(d,c)=>o.push(`<path class="ln ${c||''}" pathLength="1" style="--i:${k++}" d="${d}"/>`);
+L("M30 410H870");L(`M${x} 410V${y}H${x+bw}V410`);L(`M${x-14} ${y}V${y-14}H${x+bw+14}V${y}`,"am");
+const x2=x+bw,w2=150,h2=Math.round(bh*.62);L(`M${x2} 410V${410-h2}H${x2+w2}V410`);L(`M${x2-6} ${410-h2}V${400-h2}H${x2+w2+10}V${410-h2}`,"am");
+for(let r=1;r<p.r;r++)L(`M${x} ${y+r*86+30}H${x+bw}`);
+for(let r=0;r<p.r;r++)for(let c=0;c<p.c;c++){const wx=x+18+c*74,wy=y+34+r*86;L(`M${wx} ${wy}h40v52h-40z`);o.push(`<rect class="fl" x="${wx}" y="${wy}" width="40" height="52"/>`)}
+for(let c=0;c<2;c++){const wx=x2+22+c*62;L(`M${wx} ${420-h2}h38v44h-38z`)}
+for(let s=0;s<4;s++)L(`M${x+bw/2-30-s*12} ${410-s*7}H${x+bw/2+30+s*12}`);
+L(`M${x} 440H${x+bw}`);L(`M${x} 432v16M${x+bw} 432v16`);
+o.push(`<text class="dim" x="${x+bw/2}" y="466" text-anchor="middle">ELEVATION · PLACEHOLDER DRAWING</text>`);
+return `<svg viewBox="0 0 900 480" role="img" aria-label="Placeholder elevation drawing for ${p.n}">${o.join("")}</svg>`}
+/* preloader */
+let pv=0;const pi=setInterval(()=>{pv=Math.min(100,pv+Math.ceil(Math.random()*9));$("#pn").textContent=pv+"%";if(pv>=100){clearInterval(pi);setTimeout(()=>{$("#pre").classList.add("go");document.body.classList.add("ready")},250)}},70);
+/* hero */
+const sl=$("#slides");P.forEach((p,i)=>sl.insertAdjacentHTML("beforeend",`<div class="sl" aria-hidden="true">${elev(p,i)}</div>`));
+const dots=$("#dots");P.forEach((p,i)=>{const d=document.createElement("i");d.onclick=()=>show(i);d.setAttribute("aria-label","Show "+p.n);dots.append(d)});
+let cur=-1,tm;function show(i){cur=(i+P.length)%P.length;$$(".sl").forEach((e,k)=>{e.classList.remove("on");if(k===cur){void e.offsetWidth;e.classList.add("on")}e.setAttribute("aria-hidden",k!==cur)});
+$$("#dots i").forEach((d,k)=>{d.classList.remove("on","d");void d.offsetWidth;if(k===cur)d.classList.add("on");else if(k<cur)d.classList.add("d")});
+const p=P[cur];$("#hn").textContent=`PROJECT ${cur+1} / ${P.length} · ${p.t.toUpperCase()}`;$("#ht").textContent=p.n;$("#hl").textContent=p.l+" · "+p.d;clearTimeout(tm);tm=setTimeout(()=>show(cur+1),7000)}
+$("#nx").onclick=()=>show(cur+1);$("#pv").onclick=()=>show(cur-1);addEventListener("keydown",e=>{if(e.key==="ArrowRight")show(cur+1);if(e.key==="ArrowLeft")show(cur-1);if(e.key==="Escape")closeM()});
+const hero=$(".hero");let sx=null;hero.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});hero.addEventListener("touchend",e=>{if(sx==null)return;const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>45)show(cur+(d<0?1:-1));sx=null});
+hero.addEventListener("mousemove",e=>{const x=(e.clientX/innerWidth-.5)*24,y=(e.clientY/innerHeight-.5)*14;$$(".sl svg").forEach(s=>s.style.transform=`translate(${-x}px,${-y}px)`)});
+show(0);
+/* marquee, services, rail, process, team */
+$("#mq").innerHTML=[...SV,...SV].map(s=>`<span>${s}</span>`).join("");
+$("#rows").innerHTML=SV.map(s=>`<div class="row" role="link" tabindex="0" data-s="${s}" data-c="t"><h3>${s}</h3><em>→</em></div>`).join("");
+$("#rail").innerHTML=P.map((p,i)=>`<button class="pc" data-i="${i}" data-c="View"><div class="im">${elev(p,i)}</div><div class="pb"><small>${p.t.toUpperCase()}</small><h3>${p.n}</h3><em>${p.l}</em><div class="go"><span>${p.d}</span><span>DETAILS →</span></div></div></button>`).join("");
+$("#tl").insertAdjacentHTML("beforeend",ST.map((s,i)=>`<div class="st"><b>STEP 0${i+1}</b><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join(""));
+$("#tm").innerHTML=TM.map((t,i)=>`<div class="tc" data-r style="--d:${i*.08}s"><div class="pt">${t[2]}<small>PORTRAIT TO BE ADDED</small></div><h3>${t[0]}</h3><p>${t[1]}</p></div>`).join("");
+$("#fs").innerHTML=SV.map(s=>`<option>${s}</option>`).join("");
+/* project modal */
+function openM(i){const p=P[i];$("#mi").innerHTML=elev(p,i);$("#mk").textContent=p.t.toUpperCase();$("#mh").textContent=p.n;$("#mdl").innerHTML=`<div><dt>Location</dt><dd>${p.l}</dd></div><div><dt>Scope</dt><dd>${p.s}</dd></div><div><dt>Published timeline</dt><dd>${p.d}</dd></div>`;$("#md").classList.add("o");document.body.classList.add("lock");$("#cl").focus()}
+function closeM(){$("#md").classList.remove("o");document.body.classList.remove("lock")}
+$("#rail").onclick=e=>{if(drag)return;const c=e.target.closest(".pc");if(c)openM(+c.dataset.i)};$("#cl").onclick=closeM;$("#mc").onclick=closeM;
+let drag=0;const rl=$("#rail");let dx,sl0,dn=0;rl.addEventListener("mousedown",e=>{dn=1;drag=0;dx=e.pageX;sl0=rl.scrollLeft;rl.style.scrollSnapType="none"});addEventListener("mouseup",()=>{if(dn){dn=0;rl.style.scrollSnapType="";setTimeout(()=>drag=0,0)}});addEventListener("mousemove",e=>{if(!dn)return;const d=e.pageX-dx;if(Math.abs(d)>5)drag=1;rl.scrollLeft=sl0-d});
+/* service -> form */
+const pick=r=>{$("#fs").value=r.dataset.s;$("#contact").scrollIntoView();$("#fn").focus({preventScroll:true})};
+$$(".row").forEach(r=>{r.onclick=()=>pick(r);r.onkeydown=e=>{if(e.key==="Enter")pick(r)}});
+/* form */
+const msg=()=>encodeURIComponent(`Hello Crystal Genius, I'm ${$("#fn").value}. I need: ${$("#fs").value}. ${$("#fm").value} Phone: ${$("#fp").value}`);
+$("#f").onsubmit=e=>{e.preventDefault();open("https://wa.me/2348069452707?text="+msg(),"_blank","noopener")};
+$("#em").onclick=e=>{e.target.href="mailto:crystalgeniusinternational@gmail.com?subject=Project%20enquiry&body="+msg()};
+/* menu */
+const mn=$("#menu"),mb=$("#mb");function tg(o){mn.classList.toggle("o",o);mb.setAttribute("aria-expanded",o);$("#mt").textContent=o?"CLOSE":"MENU";document.body.classList.toggle("lock",o);$$("#menu a.l").forEach((a,i)=>a.style.transitionDelay=o?(.25+i*.06)+"s":"0s")}
+mb.onclick=()=>tg(!mn.classList.contains("o"));$$("#menu a").forEach(a=>a.onclick=()=>tg(false));
+/* reveal, counters, process */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");const n=e.target.querySelector?.("[data-n]")||(e.target.dataset.n?e.target:null);if(n&&!n.done){n.done=1;const T=+n.dataset.n,t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1600);n.textContent=Math.round(T*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)}io.unobserve(e.target)}}),{threshold:.2});
+$$("[data-r],.st").forEach(e=>io.observe(e));
+/* scroll */
+let ly=0;const nav=$("#nav");addEventListener("scroll",()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;$("#bar").style.transform=`scaleX(${y/h})`;nav.classList.toggle("s",y>40);nav.classList.toggle("hide",y>ly&&y>400&&!mn.classList.contains("o"));ly=y;
+const t=$("#tl").getBoundingClientRect();$("#tl").style.setProperty("--p",Math.max(0,Math.min(1,(innerHeight*.6-t.top)/t.height)))},{passive:true});
+/* cursor + magnetic */
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){const c=$("#cur");let mx=0,my=0,cx=0,cy=0;addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY});(function f(){cx+=(mx-cx)*.2;cy+=(my-cy)*.2;c.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(f)})();
+document.addEventListener("mouseover",e=>{const t=e.target.closest("[data-c],a,button,.row");c.classList.remove("h","t");c.textContent="";if(!t)return;const v=t.dataset.c;if(v&&v!=="t"){c.classList.add("h");c.textContent=v}else c.classList.add("t")});
+$$(".mg").forEach(b=>{b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener("mouseleave",()=>b.style.transform="")})}
+</script></body></html>
